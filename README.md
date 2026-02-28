@@ -1,6 +1,6 @@
 # 🚀 Dhruval Patel - Portfolio Website
 
-![Portfolio Preview](images/preview.png)
+![Portfolio Preview](preview.png)
 
 > A modern, responsive portfolio website showcasing my skills, projects, and experience as a Web Developer and Python/Django Specialist.
 
