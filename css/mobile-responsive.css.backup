@@ -1,0 +1,1279 @@
+/* ============================================
+   Mobile Responsive Styles for Portfolio
+   ============================================
+   
+   This stylesheet contains all mobile-specific styles
+   for Aarsh Gandhi's portfolio website.
+   
+   Breakpoints:
+   - Extra Small (xs): < 576px (mobile portrait)
+   - Small (sm): 576px - 767px (mobile landscape)
+   - Medium (md): 768px - 991px (tablet)
+   - Large (lg): 992px+ (desktop)
+   
+   ============================================ */
+
+/* CSS Custom Properties for Mobile */
+:root {
+    --mobile-xs: 320px;
+    --mobile-sm: 576px;
+    --tablet-md: 768px;
+    --desktop-lg: 992px;
+    --desktop-xl: 1200px;
+
+    --mobile-padding: 15px;
+    --mobile-section-padding: 40px;
+    --touch-target-min: 44px;
+}
+
+/* ============================================
+   GLOBAL MOBILE TYPOGRAPHY
+   ============================================ */
+
+/* Mobile Typography - Below 768px */
+@media (max-width: 767.98px) {
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    h1,
+    .h1 {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    h2,
+    .h2 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    h3,
+    .h3 {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    h4,
+    .h4 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    h5,
+    .h5 {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    h6,
+    .h6 {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+
+    li {
+        line-height: 1.6;
+    }
+}
+
+/* Small Mobile Typography - Below 576px */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    h1,
+    .h1 {
+        font-size: 32px;
+    }
+
+    h2,
+    .h2 {
+        font-size: 24px;
+    }
+
+    h3,
+    .h3 {
+        font-size: 20px;
+    }
+
+    h4,
+    .h4 {
+        font-size: 16px;
+    }
+
+    h5,
+    .h5 {
+        font-size: 14px;
+    }
+
+    h6,
+    .h6 {
+        font-size: 13px;
+    }
+}
+
+
+/* ============================================
+   GLOBAL MOBILE UTILITIES
+   ============================================ */
+
+/* Mobile Utilities - Below 768px */
+@media (max-width: 767.98px) {
+
+    /* Prevent horizontal scroll */
+    body,
+    html {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    /* Ensure all elements respect viewport width */
+    * {
+        max-width: 100%;
+    }
+
+    /* Container padding for mobile */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Image responsiveness */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Prevent double-tap zoom on interactive elements */
+    a,
+    button,
+    .btn,
+    .nav-link,
+    input,
+    textarea,
+    select {
+        touch-action: manipulation;
+    }
+
+    /* Section padding for mobile */
+    .ftco-section {
+        padding: 4em 0;
+    }
+}
+
+/* Small Mobile Utilities - Below 576px */
+@media (max-width: 575.98px) {
+
+    /* Reduced section padding for very small screens */
+    .ftco-section {
+        padding: 3em 0;
+    }
+}
+
+
+/* ============================================
+   DESKTOP NAVBAR & MOBILE RIGHT SIDEBAR
+   ============================================ */
+
+/* Desktop Navbar - Show on Desktop (992px and above) */
+@media (min-width: 992px) {
+
+    /* Show desktop navbar */
+    #ftco-navbar {
+        display: block;
+    }
+
+    /* Hide mobile sidebar elements on desktop */
+    .mobile-sidebar-nav,
+    .mobile-sidebar-toggle,
+    .mobile-sidebar-overlay {
+        display: none !important;
+    }
+}
+
+/* Mobile Right Sidebar - Show on Mobile/Tablet (Below 992px) */
+@media (max-width: 991.98px) {
+
+    /* Hide desktop navbar on mobile */
+    #ftco-navbar {
+        display: none !important;
+    }
+
+    /* Show mobile sidebar elements */
+    .mobile-sidebar-nav {
+        display: block;
+    }
+
+    /* Ensure body doesn't have extra padding on mobile */
+    body {
+        padding-top: 0 !important;
+    }
+
+    /* Make sure content is visible */
+    #home-section {
+        padding-top: 80px !important;
+        min-height: 100vh;
+    }
+
+    /* Mobile Right Sidebar - Show on Mobile/Tablet (Below 992px) */
+    @media (max-width: 991.98px) {
+
+        /* Hide desktop navbar on mobile */
+        #ftco-navbar {
+            display: none !important;
+        }
+
+        /* Show mobile sidebar elements */
+        .mobile-sidebar-nav {
+            display: block;
+        }
+
+        /* Mobile Sidebar Container */
+        .mobile-sidebar-nav {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 280px;
+            height: 100vh;
+            background: #000000;
+            z-index: 1000;
+            transition: right 0.3s ease;
+            box-shadow: -2px 0 20px rgba(0, 0, 0, 0.8);
+            overflow-y: auto;
+        }
+
+        .mobile-sidebar-nav.active {
+            right: 0;
+        }
+
+        /* Mobile Sidebar Toggle Button */
+        .mobile-sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #3e6ff4;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 2px 10px rgba(62, 111, 244, 0.5);
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .mobile-sidebar-toggle:hover {
+            background: #2d5dd4;
+            box-shadow: 0 4px 15px rgba(62, 111, 244, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .mobile-sidebar-toggle:active {
+            transform: translateY(0);
+        }
+
+        /* Hamburger Lines */
+        .hamburger-line {
+            width: 24px;
+            height: 2.5px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        /* Animate to X when active */
+        .mobile-sidebar-nav.active .hamburger-line:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+
+        .mobile-sidebar-nav.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .mobile-sidebar-nav.active .hamburger-line:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        /* Mobile Sidebar Menu */
+        .mobile-sidebar-menu {
+            padding: 80px 0 20px 0;
+        }
+
+        .mobile-sidebar-menu .mobile-nav-list {
+            list-style: none;
+            padding: 0 20px;
+            margin: 0;
+        }
+
+        .mobile-sidebar-menu .mobile-nav-item {
+            margin-bottom: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-sidebar-menu .mobile-nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-sidebar-menu .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            padding: 18px 15px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 50px;
+        }
+
+        .mobile-sidebar-menu .mobile-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 100%;
+            background: rgba(62, 111, 244, 0.1);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .mobile-sidebar-menu .mobile-nav-link:hover,
+        .mobile-sidebar-menu .mobile-nav-link:focus {
+            color: #3e6ff4;
+            padding-left: 25px;
+        }
+
+        .mobile-sidebar-menu .mobile-nav-link:hover::before {
+            width: 100%;
+        }
+
+        .mobile-sidebar-menu .mobile-nav-link.active {
+            color: #3e6ff4;
+            border-left: 3px solid #3e6ff4;
+            padding-left: 22px;
+            background: rgba(62, 111, 244, 0.05);
+        }
+
+        /* Mobile Sidebar Overlay */
+        .mobile-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Prevent body scroll when sidebar is open */
+        body.sidebar-open {
+            overflow: hidden;
+        }
+
+        /* Tap highlight color */
+        .mobile-sidebar-toggle,
+        .mobile-sidebar-menu .mobile-nav-link {
+            -webkit-tap-highlight-color: rgba(62, 111, 244, 0.3);
+        }
+
+        /* Scrollbar styling for sidebar */
+        .mobile-sidebar-nav::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .mobile-sidebar-nav::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .mobile-sidebar-nav::-webkit-scrollbar-thumb {
+            background: rgba(62, 111, 244, 0.5);
+            border-radius: 3px;
+        }
+
+        .mobile-sidebar-nav::-webkit-scrollbar-thumb:hover {
+            background: rgba(62, 111, 244, 0.7);
+        }
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    /* Tap highlight color */
+    .mobile-sidebar-toggle,
+    .mobile-sidebar-menu .mobile-nav-link {
+        -webkit-tap-highlight-color: rgba(62, 111, 244, 0.3);
+    }
+
+    /* Mobile Adjustments for Sidebar - Below 768px */
+    @media (max-width: 767.98px) {
+        .mobile-sidebar-nav {
+            width: 270px;
+            right: -300px;
+        }
+
+        .mobile-sidebar-toggle {
+            width: 48px;
+            height: 48px;
+            top: 18px;
+            right: 18px;
+            gap: 4.5px;
+        }
+
+        .hamburger-line {
+            width: 22px;
+            height: 2.5px;
+        }
+
+        .mobile-sidebar-nav.active .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-sidebar-nav.active .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-sidebar-menu .mobile-nav-link {
+            font-size: 15px;
+            padding: 16px 15px;
+            min-height: 48px;
+        }
+    }
+
+    /* Small Mobile Adjustments - Below 576px */
+    @media (max-width: 575.98px) {
+        .mobile-sidebar-nav {
+            width: 260px;
+            right: -290px;
+        }
+
+        .mobile-sidebar-toggle {
+            width: 46px;
+            height: 46px;
+            top: 16px;
+            right: 16px;
+            gap: 4px;
+        }
+
+        .hamburger-line {
+            width: 20px;
+            height: 2px;
+        }
+
+        .mobile-sidebar-nav.active .hamburger-line:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .mobile-sidebar-nav.active .hamburger-line:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .mobile-sidebar-menu .mobile-nav-link {
+            font-size: 15px;
+            padding: 15px 15px;
+            min-height: 46px;
+        }
+    }
+
+
+    /* ============================================
+   HERO SECTION MOBILE OPTIMIZATION
+   ============================================ */
+
+    /* Hero Section - Below 768px */
+    @media (max-width: 767.98px) {
+        #home-section {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        /* Remove fixed height for mobile */
+        .hero .slider-item {
+            min-height: auto !important;
+        }
+
+        /* Hide background image container on mobile for better readability */
+        .hero .one-third {
+            display: none;
+        }
+
+        /* Full width text content */
+        .hero .one-forth {
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        /* Hero heading sizing */
+        .hero .slider-text h1 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero .slider-text h2 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        /* Animated typing text sizing */
+        #typing-animation {
+            font-size: 24px;
+        }
+
+        /* Stack buttons vertically with full width */
+        .hero .slider-text .btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 12px 20px;
+            font-size: 16px;
+            min-height: 44px;
+        }
+
+        /* Subheading text */
+        .hero .slider-text .subheading {
+            font-size: 16px;
+        }
+
+        /* Ensure minimum padding */
+        .hero .text {
+            padding: 20px 15px;
+        }
+    }
+
+    /* Hero Section - Below 576px */
+    @media (max-width: 575.98px) {
+
+        /* Further reduce heading sizes */
+        .hero .slider-text h1 {
+            font-size: 32px;
+        }
+
+        .hero .slider-text h2 {
+            font-size: 18px;
+        }
+
+        #typing-animation {
+            font-size: 20px;
+        }
+
+        .hero .slider-text .subheading {
+            font-size: 14px;
+        }
+    }
+
+
+    /* ============================================
+   ABOUT SECTION MOBILE LAYOUT
+   ============================================ */
+
+    /* About Section - Below 768px */
+    @media (max-width: 767.98px) {
+
+        /* Image container spacing */
+        .ftco-about .img-about {
+            margin-bottom: 30px;
+        }
+
+        /* Center and scale profile image */
+        .about-mf .about-img {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .about-mf .about-img img {
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            margin-left: 0;
+        }
+
+        /* Personal details styling */
+        .about-mf .about-info {
+            padding: 0 15px;
+        }
+
+        .about-mf .about-info p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Skills section */
+        .skill-mf {
+            padding: 20px 15px;
+        }
+
+        .skill-mf span {
+            font-size: 14px;
+        }
+
+        .skill-mf .progress {
+            height: 8px;
+            margin: 8px 0 20px 0;
+        }
+
+        /* About info list */
+        .about-info.mt-4 {
+            padding: 0 15px;
+        }
+
+        .about-info.mt-4 li {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        /* About section text content */
+        #about-section p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Heading adjustments */
+        #about-section .heading-section h1 {
+            font-size: 36px;
+        }
+
+        #about-section .heading-section h2 {
+            font-size: 28px;
+        }
+    }
+
+    /* About Section - Below 576px */
+    @media (max-width: 575.98px) {
+
+        /* Smaller profile image for very small screens */
+        .about-mf .about-img img {
+            max-width: 200px;
+        }
+
+        /* Stack list items vertically */
+        .about-info.mt-4 li {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Make labels block-level for better readability */
+        .about-info.mt-4 li span:first-child {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* Adjust text sizing */
+        #about-section p {
+            font-size: 14px;
+        }
+    }
+
+
+    /* ============================================
+   RESUME SECTION MOBILE DISPLAY
+   ============================================ */
+
+    /* Resume Section - Below 768px */
+    @media (max-width: 767.98px) {
+
+        /* Heading sizing */
+        #resume-section .heading-section h1 {
+            font-size: 36px;
+        }
+
+        #resume-section .heading-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        #resume-section .heading-section p {
+            font-size: 15px;
+            line-height: 1.6;
+            padding: 0 15px;
+        }
+
+        /* Education cards - stack vertically and full width */
+        .resume-wrap {
+            padding: 20px 15px;
+            margin-bottom: 20px;
+        }
+
+        .resume-wrap h2 {
+            font-size: 20px;
+            line-height: 1.3;
+        }
+
+        .resume-wrap .position {
+            font-size: 14px;
+        }
+
+        .resume-wrap .date {
+            font-size: 14px;
+        }
+
+        .resume-wrap p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Download CV button - wide for easy tapping */
+        #resume-section .btn {
+            width: 90%;
+            max-width: 300px;
+            padding: 14px 20px;
+            font-size: 16px;
+            min-height: 44px;
+        }
+    }
+
+    /* Resume Section - Below 576px */
+    @media (max-width: 575.98px) {
+
+        /* Further reduce heading sizes */
+        #resume-section .heading-section h1 {
+            font-size: 32px;
+        }
+
+        #resume-section .heading-section h2 {
+            font-size: 24px;
+        }
+
+        /* Tighter padding for small screens */
+        .resume-wrap {
+            padding: 15px 10px;
+        }
+
+        .resume-wrap h2 {
+            font-size: 18px;
+        }
+    }
+
+
+    /* ============================================
+   CONTACT SECTION MOBILE LAYOUT
+   ============================================ */
+
+    /* Contact Section - Below 992px (two per row) */
+    @media (max-width: 991.98px) {
+        .contact-info .col-md-6 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info .col-lg-3 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    /* Contact Section - Below 768px */
+    @media (max-width: 767.98px) {
+
+        /* Heading sizing */
+        #contact-section .heading-section h1 {
+            font-size: 36px;
+        }
+
+        #contact-section .heading-section h2 {
+            font-size: 28px;
+        }
+
+        #contact-section .heading-section p {
+            font-size: 15px;
+        }
+
+        /* Contact cards styling */
+        .contact-info .box {
+            padding: 25px 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info .box h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info .box p {
+            font-size: 15px;
+        }
+
+        /* Touch-friendly links */
+        .contact-info .box a {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 5px;
+        }
+
+        /* Icon sizing */
+        .contact-info .icon {
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+        }
+
+        /* Social media links */
+        .ftco-footer-social li a {
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Question button */
+        #contact-section .btn {
+            width: 90%;
+            max-width: 300px;
+            padding: 14px 20px;
+            font-size: 16px;
+            min-height: 44px;
+        }
+    }
+
+    /* Contact Section - Below 576px (single column) */
+    @media (max-width: 575.98px) {
+
+        /* Stack all cards vertically */
+        .contact-info .col-md-6,
+        .contact-info .col-lg-3 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        /* Tighter padding */
+        .contact-info .box {
+            padding: 20px 15px;
+        }
+
+        /* Heading adjustments */
+        #contact-section .heading-section h1 {
+            font-size: 32px;
+        }
+
+        #contact-section .heading-section h2 {
+            font-size: 24px;
+        }
+    }
+
+
+    /* ============================================
+   TOUCH INTERACTION ENHANCEMENTS
+   ============================================ */
+
+    /* Touch-Friendly Interactions - Below 768px */
+    @media (max-width: 767.98px) {
+
+        /* Minimum touch target size for all buttons */
+        .btn,
+        button,
+        .btn-primary {
+            min-width: 44px;
+            min-height: 44px;
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        /* Spacing between adjacent buttons */
+        .btn+.btn {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        /* Horizontal button spacing when side by side */
+        p .btn+.btn {
+            margin-left: 8px;
+            margin-top: 0;
+        }
+
+        /* Tap highlight color for all interactive elements */
+        a,
+        button,
+        .btn,
+        .nav-link,
+        input,
+        textarea,
+        select {
+            -webkit-tap-highlight-color: rgba(62, 111, 244, 0.3);
+        }
+
+        /* Visual feedback on tap/active state */
+        a:active,
+        button:active,
+        .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease;
+        }
+
+        /* Focus states for accessibility */
+        a:focus,
+        button:focus,
+        .btn:focus {
+            outline: 2px solid rgba(62, 111, 244, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Ensure links have adequate touch targets */
+        a {
+            min-height: 24px;
+            display: inline-block;
+        }
+
+        /* Icon links touch targets */
+        .icon-linkedin,
+        .icon-instagram,
+        .icon-map-signs,
+        .icon-phone2,
+        .icon-paper-plane,
+        .icon-globe {
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+
+    /* ============================================
+   SECTION SPACING AND PADDING
+   ============================================ */
+
+    /* Section Spacing - Below 768px */
+    @media (max-width: 767.98px) {
+
+        /* Consistent section vertical padding */
+        section,
+        .ftco-section {
+            padding: 50px 0;
+        }
+
+        /* Specific section adjustments */
+        #home-section {
+            padding: 20px 0 40px 0;
+        }
+
+        #about-section {
+            padding: 50px 0;
+        }
+
+        #resume-section {
+            padding: 50px 0;
+        }
+
+        #contact-section {
+            padding: 50px 0;
+        }
+
+        /* Horizontal padding - prevent edge touching */
+        section .container,
+        .ftco-section .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* Content block spacing */
+        .row {
+            margin-bottom: 20px;
+        }
+
+        .row:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Spacing between major content blocks */
+        .heading-section {
+            margin-bottom: 30px;
+        }
+
+        .ftco-animate {
+            margin-bottom: 20px;
+        }
+
+        /* Ensure content never touches edges */
+        .text,
+        .content,
+        p,
+        ul,
+        ol {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* Remove extra padding from nested containers */
+        .container .text,
+        .container .content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    /* Section Spacing - Below 576px */
+    @media (max-width: 575.98px) {
+
+        /* Reduced vertical padding for very small screens */
+        section,
+        .ftco-section {
+            padding: 35px 0;
+        }
+
+        #home-section {
+            padding: 15px 0 30px 0;
+        }
+
+        #about-section,
+        #resume-section,
+        #contact-section {
+            padding: 35px 0;
+        }
+
+        /* Tighter content block spacing */
+        .heading-section {
+            margin-bottom: 20px;
+        }
+
+        .ftco-animate {
+            margin-bottom: 15px;
+        }
+    }
+
+
+    /* ============================================
+   LINE HEIGHT ACCESSIBILITY
+   ============================================ */
+
+    /* Line Height for Mobile Readability - Below 768px */
+    @media (max-width: 767.98px) {
+
+        /* Ensure minimum line height for all text elements */
+        body,
+        p,
+        li,
+        span,
+        div {
+            line-height: 1.6;
+        }
+
+        /* Headings line height */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6 {
+            line-height: 1.3;
+        }
+
+        /* List items */
+        ul li,
+        ol li {
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* Paragraph spacing */
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* About info list items */
+        .about-info li {
+            line-height: 1.8;
+        }
+    }
+
+
+    /* ============================================
+   ADDITIONAL MOBILE FIXES
+   ============================================ */
+
+    /* Additional Mobile Optimizations - Below 768px */
+    @media (max-width: 767.98px) {
+
+        /* Fix for the "Connect with me" section */
+        .ftco-hireme {
+            padding: 60px 20px !important;
+            margin-top: 60px !important;
+        }
+
+        .ftco-hireme h2 {
+            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .ftco-hireme h3 {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* Footer adjustments */
+        .ftco-footer {
+            padding: 30px 0;
+        }
+
+        .ftco-footer p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Social media footer links */
+        .ftco-footer-social {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .ftco-footer-social li {
+            margin: 5px 10px;
+        }
+
+        /* Big heading background text */
+        .big,
+        .big-2 {
+            font-size: 60px !important;
+            opacity: 0.05;
+        }
+
+        /* Owl carousel adjustments */
+        .owl-carousel .owl-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ensure no horizontal overflow from any element */
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .col,
+        [class*="col-"] {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    /* Very Small Mobile Fixes - Below 576px */
+    @media (max-width: 575.98px) {
+        .ftco-hireme h2 {
+            font-size: 20px;
+        }
+
+        .ftco-hireme h3 {
+            font-size: 16px;
+        }
+
+        .big,
+        .big-2 {
+            font-size: 50px !important;
+        }
+    }
+
+    /* ============================================
+   LANDSCAPE ORIENTATION OPTIMIZATIONS
+   ============================================ */
+
+    /* Landscape mode for mobile devices */
+    @media (max-width: 767.98px) and (orientation: landscape) {
+
+        /* Reduce vertical padding in landscape */
+        section,
+        .ftco-section {
+            padding: 30px 0;
+        }
+
+        #home-section {
+            padding: 15px 0 25px 0;
+        }
+
+        /* Adjust hero section for landscape */
+        .hero .slider-text h1 {
+            font-size: 32px;
+        }
+
+        .hero .slider-text h2 {
+            font-size: 18px;
+        }
+    }
+
+
+    /* ============================================
+   BLUE LOADER STYLING
+   ============================================ */
+
+    /* Enhanced blue loader */
+    #ftco-loader {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    #ftco-loader .circular {
+        animation: rotate 2s linear infinite;
+    }
+
+    #ftco-loader .path {
+        stroke: #3e6ff4;
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(62, 111, 244, 0.5));
+    }
+
+    #ftco-loader .path-bg {
+        stroke: rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes dash {
+        0% {
+            stroke-dasharray: 1, 150;
+            stroke-dashoffset: 0;
+        }
+
+        50% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -35;
+        }
+
+        100% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -124;
+        }
+    }

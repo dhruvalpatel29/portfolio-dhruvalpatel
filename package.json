@@ -1,0 +1,29 @@
+{
+  "name": "mobile-responsive-portfolio",
+  "version": "1.0.0",
+  "description": "Mobile responsive portfolio website with property-based testing",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "fast-check": "^3.15.0",
+    "puppeteer": "^21.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "css/**/*.css",
+      "!css/bootstrap/**",
+      "!css/css/**"
+    ]
+  }
+}
